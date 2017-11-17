@@ -1,5 +1,4 @@
 package typefaster.models;
-import com.sun.xml.internal.ws.developer.UsesJAXBContext;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
