@@ -9,5 +9,6 @@ public interface IGame {
     void setEndTime();
     IText getText();
     void setText(IText text);
+    Double getTotalTime();
     Double getVelocity();
 }

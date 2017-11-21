@@ -21,6 +21,7 @@ jar {
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 sourceCompatibility = 1.8
@@ -37,4 +38,5 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // end::actuator[]
     testCompile("junit:junit")
+    testCompile('org.mockito:mockito-core:2.7.22')
 }

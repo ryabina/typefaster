@@ -3,6 +3,8 @@ package typefaster.models;
 import java.util.Date;
 
 public class Game implements IGame{
+    IText text;
+
     @Override
     public Date getStartTime() {
         throw new  Error("Not implemented");
@@ -25,12 +27,17 @@ public class Game implements IGame{
 
     @Override
     public IText getText() {
-        throw new  Error("Not implemented");
+        return text;
     }
 
     @Override
     public void setText(IText text) {
-        throw new  Error("Not implemented");
+         this.text = text;
+    }
+
+    @Override
+    public Double getTotalTime() {
+        return null;
     }
 
     @Override
