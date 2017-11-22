@@ -7,7 +7,7 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
 import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GameTest {
@@ -20,9 +20,9 @@ public class GameTest {
     @Test
     public void getVelocityTestHappyPath(){
         // Arrange
-        Double expectedTime = 15.0;
-        Integer expectedLength = 10;
-        Double expectedVelocity = expectedLength/expectedTime;
+        Double expectedTime = 10.0;
+        Integer expectedLength = 15;
+        Double expectedVelocity = 1.5;
         doReturn(expectedTime).when(game).getTotalTime();
         IText mockText = mock(IText.class);
         doReturn(expectedLength).when(mockText).getLength();
@@ -31,5 +31,17 @@ public class GameTest {
         Double actualVelocity = game.getVelocity();
         // Assert
         assertEquals(expectedVelocity, actualVelocity);
+    }
+    @Test(expected = ArithmeticException.class)
+    public void getVelocityTestNoTime(){
+        // Arrange
+        Double expectedTime = 0.0;
+        doReturn(expectedTime).when(game).getTotalTime();
+        IText mockText = mock(IText.class);
+        game.setText(mockText);
+        // Act
+        game.getVelocity();
+        // Assert
+        fail("did not throw exception");
     }
 }

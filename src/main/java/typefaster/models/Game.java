@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Game implements IGame{
     IText text;
-
     @Override
     public Date getStartTime() {
         throw new  Error("Not implemented");
@@ -41,7 +40,9 @@ public class Game implements IGame{
     }
 
     @Override
-    public Double getVelocity() {
-        throw new  Error("Not implemented");
+    public Double getVelocity() throws ArithmeticException{
+        if (getTotalTime() == 0)
+            throw new ArithmeticException("Total time is 0");
+        return text.getLength()/getTotalTime();
     }
 }
