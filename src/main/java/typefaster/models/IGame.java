@@ -1,11 +1,11 @@
 package typefaster.models;
 
-import java.util.Date;
+import org.joda.time.DateTime;
 
 public interface IGame {
-    Date getStartTime();
+    DateTime getStartTime();
     void setStartTime();
-    Date getEndTime();
+    DateTime getEndTime();
     void setEndTime();
     IText getText();
     void setText(IText text);

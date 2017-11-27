@@ -1,4 +1,5 @@
 package typefaster.models;
+import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -8,6 +9,7 @@ import static org.mockito.Mockito.mock;
 
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class GameTest {
@@ -43,5 +45,31 @@ public class GameTest {
         game.getVelocity();
         // Assert
         fail("did not throw exception");
+    }
+
+    @Test
+    public void getTotalTimeHappyPath(){
+        // Arrange
+        DateTime expectedEndTime = new DateTime(1511768832000L);
+        DateTime expectedStartTime = new DateTime(1511768822000L);
+        Double expectedTotalTime = 10.0;
+        doReturn(expectedEndTime).when(game).getEndTime();
+        doReturn(expectedStartTime).when(game).getStartTime();
+        // Act
+        Double actualTotalTime = game.getTotalTime();
+        // Assert
+        assertEquals(expectedTotalTime,actualTotalTime);
+    }
+
+    @Test
+    public void getTotalTimeNoEndTime(){
+        // Arrange
+        DateTime expectedStartTime = new DateTime(1511768822L);
+        Double expectedTotalTime = 11.0;
+        doReturn(expectedStartTime).when(game).getStartTime();
+        // Act
+        Double actualTotalTime = game.getTotalTime();
+        // Assert
+        assertEquals(expectedTotalTime,actualTotalTime);
     }
 }

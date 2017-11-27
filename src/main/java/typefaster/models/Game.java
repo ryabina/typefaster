@@ -1,27 +1,30 @@
 package typefaster.models;
 
-import java.util.Date;
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
 
 public class Game implements IGame{
     IText text;
+    DateTime startTime;
+    DateTime endTime;
     @Override
-    public Date getStartTime() {
-        throw new  Error("Not implemented");
+    public DateTime getStartTime() {
+        return startTime;
     }
 
     @Override
     public void setStartTime() {
-        throw new  Error("Not implemented");
+        startTime = new DateTime();
     }
 
     @Override
-    public Date getEndTime() {
-        throw new  Error("Not implemented");
+    public DateTime getEndTime() {
+        return endTime;
     }
 
     @Override
     public void setEndTime() {
-        throw new  Error("Not implemented");
+        endTime = new DateTime();
     }
 
     @Override
@@ -36,7 +39,8 @@ public class Game implements IGame{
 
     @Override
     public Double getTotalTime() {
-        return null;
+        Duration totalTime = new Duration(getStartTime(), getEndTime());
+        return (double) totalTime.getStandardSeconds();
     }
 
     @Override
