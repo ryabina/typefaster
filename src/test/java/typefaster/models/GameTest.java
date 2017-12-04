@@ -3,9 +3,7 @@ import org.joda.time.DateTime;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.CALLS_REAL_METHODS;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -34,6 +32,7 @@ public class GameTest {
         // Assert
         assertEquals(expectedVelocity, actualVelocity);
     }
+
     @Test(expected = ArithmeticException.class)
     public void getVelocityTestNoTime(){
         // Arrange
@@ -62,14 +61,20 @@ public class GameTest {
     }
 
     @Test
-    public void getTotalTimeNoEndTime(){
+    public void setEndTime(){
         // Arrange
-        DateTime expectedStartTime = new DateTime(1511768822L);
-        Double expectedTotalTime = 11.0;
-        doReturn(expectedStartTime).when(game).getStartTime();
         // Act
-        Double actualTotalTime = game.getTotalTime();
+        game.setEndTime();
         // Assert
-        assertEquals(expectedTotalTime,actualTotalTime);
+        verify(game).getCurrentTime();
+    }
+
+    @Test
+    public void getEndTimeNoEndTime(){
+        // Arrange
+        // Act
+        game.getEndTime();
+        // Assert
+        verify(game).setEndTime();
     }
 }

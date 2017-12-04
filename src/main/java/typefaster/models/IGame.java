@@ -11,4 +11,5 @@ public interface IGame {
     void setText(IText text);
     Double getTotalTime();
     Double getVelocity();
+    DateTime getCurrentTime();
 }

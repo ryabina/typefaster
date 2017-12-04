@@ -19,12 +19,15 @@ public class Game implements IGame{
 
     @Override
     public DateTime getEndTime() {
+        if (endTime == null){
+          setEndTime();
+        }
         return endTime;
     }
 
     @Override
     public void setEndTime() {
-        endTime = new DateTime();
+        endTime = getCurrentTime();
     }
 
     @Override
@@ -48,5 +51,8 @@ public class Game implements IGame{
         if (getTotalTime() == 0)
             throw new ArithmeticException("Total time is 0");
         return text.getLength()/getTotalTime();
+    }
+    public DateTime getCurrentTime(){
+        return new DateTime();
     }
 }
