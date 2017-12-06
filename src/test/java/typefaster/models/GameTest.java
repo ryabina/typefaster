@@ -18,7 +18,7 @@ public class GameTest {
     }
 
     @Test
-    public void getVelocityTestHappyPath(){
+    public void getVelocityTestHappyPath()throws Exception{
         // Arrange
         Double expectedTime = 10.0;
         Integer expectedLength = 15;
@@ -34,7 +34,7 @@ public class GameTest {
     }
 
     @Test(expected = ArithmeticException.class)
-    public void getVelocityTestNoTime(){
+    public void getVelocityTestNoTime() throws Exception{
         // Arrange
         Double expectedTime = 0.0;
         doReturn(expectedTime).when(game).getTotalTime();
@@ -46,8 +46,18 @@ public class GameTest {
         fail("did not throw exception");
     }
 
+    @Test (expected = Exception.class)
+    public void getVelocityTestNoData() throws Exception{
+        // Arrange
+        // Act
+        game.getVelocity();
+        // Assert
+        fail("did not throw exception");
+    }
+
+
     @Test
-    public void getTotalTimeHappyPath(){
+    public void getTotalTimeHappyPath() throws Exception{
         // Arrange
         DateTime expectedEndTime = new DateTime(1511768832000L);
         DateTime expectedStartTime = new DateTime(1511768822000L);
@@ -76,5 +86,44 @@ public class GameTest {
         game.getEndTime();
         // Assert
         verify(game).setEndTime();
+    }
+
+    @Test
+    public void setStartTime(){
+        // Arrange
+        // Act
+        game.setStartTime();
+        // Assert
+        verify(game).getCurrentTime();
+    }
+
+    @Test
+    public void getStartTime() throws Exception{
+        // Arrange
+        DateTime expectedStartTime = new DateTime(1511768832000L);
+        doReturn(expectedStartTime).when(game).getCurrentTime();
+        game.setStartTime();
+        // Act
+        DateTime actualStartTime = game.getStartTime();
+        // Assert
+        assertEquals(expectedStartTime, actualStartTime);
+    }
+
+    @Test(expected = Exception.class)
+    public void getStartTimeNoTime() throws Exception{
+        // Arrange
+        // Act
+        game.getStartTime();
+        // Assert
+        fail("did not throw exception");
+    }
+
+    @Test (expected = Exception.class)
+    public void getTotalTimeNoStartTime() throws Exception{
+        // Arrange
+        // Act
+        game.getTotalTime();
+        // Assert
+        fail("did not throw exception");
     }
 }

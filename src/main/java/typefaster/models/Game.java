@@ -8,13 +8,17 @@ public class Game implements IGame{
     DateTime startTime;
     DateTime endTime;
     @Override
-    public DateTime getStartTime() {
+    public DateTime getStartTime() throws Exception {
+        if (startTime == null) {
+            throw new Exception("game wasn't started yet");
+        }
         return startTime;
     }
 
     @Override
     public void setStartTime() {
-        startTime = new DateTime();
+        startTime = getCurrentTime();
+
     }
 
     @Override
@@ -41,13 +45,13 @@ public class Game implements IGame{
     }
 
     @Override
-    public Double getTotalTime() {
+    public Double getTotalTime() throws Exception {
         Duration totalTime = new Duration(getStartTime(), getEndTime());
         return (double) totalTime.getStandardSeconds();
     }
 
     @Override
-    public Double getVelocity() throws ArithmeticException{
+    public Double getVelocity() throws Exception{
         if (getTotalTime() == 0)
             throw new ArithmeticException("Total time is 0");
         return text.getLength()/getTotalTime();
