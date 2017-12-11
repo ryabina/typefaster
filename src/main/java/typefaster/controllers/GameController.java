@@ -1,9 +1,14 @@
 package typefaster.controllers;
 
+import typefaster.models.Game;
+import typefaster.models.IGame;
+
 public class GameController implements IGameController {
+    IGame game = new Game();
     @Override
     public String startGame() {
-        return null;
+        game.setStartTime();
+        return "Game started!";
     }
 
     @Override

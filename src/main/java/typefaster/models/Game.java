@@ -40,8 +40,8 @@ public class Game implements IGame{
     }
 
     @Override
-    public void setText(IText text) {
-         this.text = text;
+    public void setText(String text) {
+        this.text.setText(text);
     }
 
     @Override

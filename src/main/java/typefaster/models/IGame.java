@@ -8,7 +8,7 @@ public interface IGame {
     DateTime getEndTime();
     void setEndTime();
     IText getText();
-    void setText(IText text);
+    void setText(String text);
     Double getTotalTime() throws Exception;
     Double getVelocity() throws Exception;
     DateTime getCurrentTime();

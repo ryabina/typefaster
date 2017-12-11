@@ -2,20 +2,27 @@ package typefaster.controllers;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import typefaster.models.Game;
 import typefaster.models.IGame;
+import typefaster.models.IText;
+import typefaster.models.Text;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+@RunWith(MockitoJUnitRunner.class)
 
 public class GameControllerTest {
+    @Mock
     IGame mockGame;
-    IGameController gameController;
+    @InjectMocks
+    GameController gameController;
     @Before
     public void setUp() throws Exception {
-        gameController = new GameController();
-        mockGame = mock(Game.class);
     }
 
     @Test
@@ -31,6 +38,15 @@ public class GameControllerTest {
 
     @Test
     public void endGame() {
+        // Arrange
+        String expectedText = "Yo-yo-yo";
+        String expectedResponse = "Game ended!";
+        // Act
+        String actualResponse = gameController.endGame(expectedText);
+        // Assert
+        verify(mockGame).setText(expectedText);
+        verify(mockGame).setEndTime();
+        assertEquals(expectedResponse, actualResponse);
     }
 
     @Test

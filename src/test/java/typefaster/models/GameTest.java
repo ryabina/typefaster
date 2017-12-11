@@ -4,14 +4,18 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 
 @RunWith(MockitoJUnitRunner.class)
 public class GameTest {
-    IGame game;
+    @Mock
+    IText mockText;
+    @InjectMocks
+    Game game;
     @Before
     public void setUp() throws Exception {
         game = mock(Game.class, CALLS_REAL_METHODS);
@@ -24,9 +28,7 @@ public class GameTest {
         Integer expectedLength = 15;
         Double expectedVelocity = 1.5;
         doReturn(expectedTime).when(game).getTotalTime();
-        IText mockText = mock(IText.class);
         doReturn(expectedLength).when(mockText).getLength();
-        game.setText(mockText);
         // Act
         Double actualVelocity = game.getVelocity();
         // Assert
@@ -38,8 +40,6 @@ public class GameTest {
         // Arrange
         Double expectedTime = 0.0;
         doReturn(expectedTime).when(game).getTotalTime();
-        IText mockText = mock(IText.class);
-        game.setText(mockText);
         // Act
         game.getVelocity();
         // Assert
@@ -125,5 +125,14 @@ public class GameTest {
         game.getTotalTime();
         // Assert
         fail("did not throw exception");
+    }
+    @Test
+    public void setText(){
+        // Arrange
+        String expectedText = "Yo-yo-yo!";
+        // Act
+        game.setText(expectedText);
+        // Assert
+        verify(mockText).setText(expectedText);
     }
 }
