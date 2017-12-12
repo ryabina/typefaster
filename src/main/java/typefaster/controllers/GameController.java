@@ -13,11 +13,19 @@ public class GameController implements IGameController {
 
     @Override
     public String endGame(String text) {
-        return null;
+        game.setText(text);
+        game.setEndTime();
+        return "Game ended!";
     }
 
     @Override
-    public String showVelocity() {
-        return null;
+    public String showVelocity(){
+        try{
+            game.getVelocity();
+        }
+        catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+        return "Your velocity is great!";
     }
 }

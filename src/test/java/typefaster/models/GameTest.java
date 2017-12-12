@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 
@@ -14,11 +15,13 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class GameTest {
     @Mock
     IText mockText;
+
     @InjectMocks
+    @Spy
     Game game;
+
     @Before
     public void setUp() throws Exception {
-        game = mock(Game.class, CALLS_REAL_METHODS);
     }
 
     @Test

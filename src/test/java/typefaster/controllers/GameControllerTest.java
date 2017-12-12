@@ -50,6 +50,13 @@ public class GameControllerTest {
     }
 
     @Test
-    public void showVelocity() {
+    public void showVelocity() throws Exception {
+        // Arrange
+        String expectedVelocity = "Your velocity is great!";
+        // Act
+        String actualVelocity = gameController.showVelocity();
+        // Assert
+        verify(mockGame).getVelocity();
+        assertEquals(expectedVelocity, actualVelocity);
     }
 }
