@@ -17,7 +17,7 @@ public class TextTest {
     public void getLength() {
         // Arrange
         String expectedText = "1234567890";
-        Integer expectedLength = 1;
+        Integer expectedLength = 10;
         text.setText(expectedText);
 
         // Act
