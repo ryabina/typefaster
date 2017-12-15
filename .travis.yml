@@ -1,6 +1,8 @@
 language: java
 deploy:
   provider: heroku
+  app:
+    master: pure-meadow-43688
   on:
     tags: true
     branch: master
