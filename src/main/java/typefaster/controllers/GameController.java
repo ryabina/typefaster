@@ -13,7 +13,7 @@ public class GameController implements IGameController {
     @RequestMapping(path = "/game", method = RequestMethod.POST)
     public String startGame() {
         game.setStartTime();
-        return "Game started!";
+        return "startGame";
     }
 
     @Override
@@ -21,7 +21,7 @@ public class GameController implements IGameController {
     public String endGame(String text) {
         game.setText(text);
         game.setEndTime();
-        return "Game ended!";
+        return "endGame";
     }
 
     @Override
@@ -33,6 +33,6 @@ public class GameController implements IGameController {
         catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
-        return "Your velocity is great!";
+        return "velocity";
     }
 }

@@ -28,7 +28,7 @@ public class GameControllerTest {
     @Test
     public void startGame() {
         // Arrange
-        String expectedResponse = "Game started!";
+        String expectedResponse = "startGame";
         // Act
         String actualResponse = gameController.startGame();
         // Assert
@@ -40,7 +40,7 @@ public class GameControllerTest {
     public void endGame() {
         // Arrange
         String expectedText = "Yo-yo-yo";
-        String expectedResponse = "Game ended!";
+        String expectedResponse = "endGame";
         // Act
         String actualResponse = gameController.endGame(expectedText);
         // Assert
@@ -52,7 +52,7 @@ public class GameControllerTest {
     @Test
     public void showVelocity() throws Exception {
         // Arrange
-        String expectedVelocity = "Your velocity is great!";
+        String expectedVelocity = "velocity";
         // Act
         String actualVelocity = gameController.showVelocity();
         // Assert
