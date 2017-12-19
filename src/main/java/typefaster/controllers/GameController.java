@@ -8,12 +8,17 @@ import typefaster.models.IGame;
 
 @Controller
 public class GameController implements IGameController {
+    public static final String START_GAME_VIEW = "startGame";
+    public static final String END_GAME_VIEW = "endGame";
+    public static final String VELOCITY_VIEW = "velocity";
+    public static final String HOME_VIEW = "home";
+
     IGame game = new Game();
     @Override
     @RequestMapping(path = "/game", method = RequestMethod.POST)
     public String startGame() {
         game.setStartTime();
-        return "startGame";
+        return START_GAME_VIEW;
     }
 
     @Override
@@ -21,7 +26,7 @@ public class GameController implements IGameController {
     public String endGame(String text) {
         game.setText(text);
         game.setEndTime();
-        return "endGame";
+        return END_GAME_VIEW;
     }
 
     @Override
@@ -33,6 +38,12 @@ public class GameController implements IGameController {
         catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
-        return "velocity";
+        return VELOCITY_VIEW;
+    }
+
+    @Override
+    @RequestMapping(path = "/", method = RequestMethod.GET)
+    public String showHomePage() {
+        return HOME_VIEW;
     }
 }

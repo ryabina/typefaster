@@ -6,13 +6,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import typefaster.models.Game;
 import typefaster.models.IGame;
-import typefaster.models.IText;
-import typefaster.models.Text;
-
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 
@@ -28,35 +23,45 @@ public class GameControllerTest {
     @Test
     public void startGame() {
         // Arrange
-        String expectedResponse = "startGame";
+        String expectedViewName = GameController.START_GAME_VIEW;
         // Act
-        String actualResponse = gameController.startGame();
+        String actualViewName = gameController.startGame();
         // Assert
         verify(mockGame).setStartTime();
-        assertEquals(expectedResponse, actualResponse);
+        assertEquals(expectedViewName, actualViewName);
     }
 
     @Test
     public void endGame() {
         // Arrange
         String expectedText = "Yo-yo-yo";
-        String expectedResponse = "endGame";
+        String expectedViewName = GameController.END_GAME_VIEW;
         // Act
-        String actualResponse = gameController.endGame(expectedText);
+        String actualViewName = gameController.endGame(expectedText);
         // Assert
         verify(mockGame).setText(expectedText);
         verify(mockGame).setEndTime();
-        assertEquals(expectedResponse, actualResponse);
+        assertEquals(expectedViewName, actualViewName);
     }
 
     @Test
     public void showVelocity() throws Exception {
         // Arrange
-        String expectedVelocity = "velocity";
+        String expectedViewName = GameController.VELOCITY_VIEW;
         // Act
-        String actualVelocity = gameController.showVelocity();
+        String actualViewName = gameController.showVelocity();
         // Assert
         verify(mockGame).getVelocity();
-        assertEquals(expectedVelocity, actualVelocity);
+        assertEquals(expectedViewName, actualViewName);
+    }
+
+    @Test
+    public void showHomePage(){
+        // Arrange
+        String expectedViewName = GameController.HOME_VIEW;
+        // Act
+        String actualViewName = gameController.showHomePage();
+        // Assert
+        assertEquals(expectedViewName, actualViewName);
     }
 }
