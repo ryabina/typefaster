@@ -2,29 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="style.css" type="text/css"  th:href="@{/css/gtvg.css}" />
     <title>Game</title>
 </head>
 <body>
-<div>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li>About</li>
-        <li>Contacts</li>
-    </ul>
-</div>
-<div>
-    <form action="/game" method="post">
-        <textarea name="game" rows="10" cols="30"></textarea>
-        <input type="submit" value="Start game"></input>
-    </form>
-</div>
-<div>
-    <span>
-        &copy; by LEYLA!
-    </span>
-    <span>
-        <a href="https://github.com/ryabina/">GitHub</a>
-    </span>
+<div class="wrapper">
+    <div class="menu">
+        <span class="menu__navigation"><a href="/">Home</a></span>
+        <span class="menu__navigation">About</span>
+        <span class="menu__navigation">Contacts</span>
+    </div>
+    <div class="game">
+        <form action="/game" method="post">
+            <span class="game__start-text">Start your awesome typing here</span>
+            <input class="game__button" type="submit" value="Start game"></input>
+        </form>
+    </div>
+    <div class="footer">
+        <span class="footer__copyright">
+            &copy; by LEYLA!
+        </span>
+        <span class="footer__link">
+            <a href="https://github.com/ryabina/">GitHub</a>
+        </span>
+    </div>
 </div>
 </body>
 </html>
