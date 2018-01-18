@@ -3,12 +3,19 @@
     flex-direction: column;
     min-height: 100vh;
 }
-.menu{
+
+.main-content{
     flex: 1 0 auto;
 }
 .game{
-    flex: 1 0 auto;
+max-width: 600px;
+margin: 0 auto;
 }
+
+.game__button{
+display: block;
+}
+
 .footer {
     flex: 0 0 auto;
 }
