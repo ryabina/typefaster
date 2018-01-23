@@ -1,36 +1,51 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 .main-content{
-    flex: 1 0 auto;
+	flex: 1 0 auto;
 
 }
+.menu{
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .menu__content{
-   max-width: 1000px;
-   margin: 0 auto;
-   display: flex;
-   justify-content: space-between;
+	max-width: 1000px;
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
 }
 
 .game{
-    max-width: 600px;
-    margin: 0 auto;
+	max-width: 600px;
+	margin: 50px auto auto;
+	border: black solid;
+	padding: 50px;
 }
 
 .game__button{
-    display: block;
+	display: block;
 }
 
 .footer {
-    flex: 0 0 auto;
+	height: 60px;
+	flex: 0 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .footer__content{
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content:space-between;
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
 }

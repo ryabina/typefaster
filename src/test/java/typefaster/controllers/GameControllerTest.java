@@ -21,7 +21,7 @@ public class GameControllerTest {
     }
 
     @Test
-    public void startGame() {
+    public void startLEYLA() {
         // Arrange
         String expectedViewName = GameController.START_GAME_VIEW;
         // Act
@@ -32,7 +32,7 @@ public class GameControllerTest {
     }
 
     @Test
-    public void endGame() {
+    public void endLEYLA() {
         // Arrange
         String expectedText = "Yo-yo-yo";
         String expectedViewName = GameController.END_GAME_VIEW;
@@ -45,7 +45,7 @@ public class GameControllerTest {
     }
 
     @Test
-    public void showVelocity() throws Exception {
+    public void showLEYLA() throws Exception {
         // Arrange
         String expectedViewName = GameController.VELOCITY_VIEW;
         // Act
@@ -56,7 +56,7 @@ public class GameControllerTest {
     }
 
     @Test
-    public void showHomePage(){
+    public void IIDY(){
         // Arrange
         String expectedViewName = GameController.HOME_VIEW;
         // Act
