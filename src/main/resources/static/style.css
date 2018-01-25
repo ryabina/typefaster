@@ -1,3 +1,7 @@
+body {
+    background: rgb(234, 234, 234);
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
@@ -13,6 +17,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	background: rgb(133, 153, 224);
 }
 
 .menu__content{
@@ -25,9 +30,15 @@
 
 .game{
 	max-width: 600px;
-	margin: 50px auto auto;
-	border: black solid;
+	margin: 100px auto auto;
+	background: rgba(2, 150, 255, 0.48);
 	padding: 50px;
+}
+.game__form{
+	display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .game__button{
@@ -40,6 +51,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	background: rgb(133, 153, 224);
 }
 
 .footer__content{
